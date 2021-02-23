@@ -1,16 +1,18 @@
-import MenuSuperior from '../components/MenuSuperior';
-import MenuAtalhos from '../components/MenuAtalhos';
+import MenuSuperiorGeral from '../components/MenuSuperiorGeral';
+import MenuAtalhosGeral from '../components/MenuAtalhosGeral';
 import RodapeSite from '../components/RodapeSite';
 
 
-function HomePage() {
+function Index() {
   return (
   <div>
-    <MenuSuperior />
-    <MenuAtalhos />
+    <MenuSuperiorGeral />
+    <MenuAtalhosGeral />
+    <body>
+      <p>Nesta área, será implementada a autenticação do Google</p>
+    </body>
     <RodapeSite />
-
   </div>
   );
 }
-export default HomePage
+export default Index
