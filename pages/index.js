@@ -1,7 +1,6 @@
 import MenuSuperior from '../components/MenuSuperior';
 import MenuAtalhos from '../components/MenuAtalhos';
 import RodapeSite from '../components/RodapeSite';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function HomePage() {
