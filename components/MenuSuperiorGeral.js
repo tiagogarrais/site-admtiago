@@ -1,9 +1,35 @@
 const MenuSuperiorGeral = () => {
-    return(
-        <div style={{backgroundColor:"black", margin:"auto", fontFamily:"ubuntu mono", textAlign:"center", padding:"1pt"}}>
-            <h2 style={{color:"white", fontSize:"20pt", paddingTop:"10pt",  lineHeight: "1" }}>Página profissional</h2>
-            <h1 style={{color:"white", fontSize:"20pt", padding:"1pt" }}>Adm. Tiago Arrais</h1>
-            <br />
+
+    
+    return (
+        <div
+            style={{
+                backgroundColor: "black",
+                margin: "auto",
+                fontFamily: "ubuntu mono",
+                textAlign: "center",
+                padding: "0.1%"
+            }}>
+
+            <h1
+                style={{
+                    color: "white",
+                    fontSize: "20pt",
+                }}>Adm. Tiago Arrais
+            </h1>
+
+
+            <h2
+                style={{
+                    color: "white",
+                    fontSize: "20pt",
+                    lineHeight: "1"
+                }}>Página profissional
+
+            </h2>
+
+
+
         </div>
     );
 }

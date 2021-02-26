@@ -1,63 +1,57 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
+import axios from 'axios'
 
 
-class InventarioComponente extends React.Component {
+function InventarioComponente() {
+    const [tombo, setTombo] = useState('');
 
-    state = {}
-
-    handleSubmit = e => {
-        console.log(this.state)
+    function handleEnviarTombo(event){
+        event.preventDefault()
+        axios.post('../api/inventario', {tombo: tombo})
     }
 
-    handleChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
 
-    render() {
+    return (
+        <div style={{
+            color: "black",
+            margin: "auto",
+            fontFamily: "monospace",
+            textAlign: "center",
+            backgroundColor: "white",
+            padding: "10pt"
+        }}>
 
-        return (
-            <div style={{
-                color: "black",
-                margin: "auto",
-                fontFamily: "monospace",
-                textAlign: "center",
-                backgroundColor: "white",
-                padding: "10pt"
-            }}>
+            <h3 style={{ textAlign: "center", fontSize: "22pt", color: "black" }} >Inventário do Instituto de Formação de Educadores</h3>
 
-                <h3 style={{ textAlign: "center", fontSize: "22pt", color: "black" }} >Inventário do Instituto de Formação de Educadores</h3>
 
-                <form
-                    onSubmit={this.handleSubmit}
-                    style={{ textAlign: "center" }}
-                >
-                    <fieldset>
-                        <legend style={{ fontSize: "0.9rem" }}>Dados do bem</legend>
-                        <label>
-                            Informe o tombo do bem:
-                                <input
-                                type="number"
-                                name="tombo"
-                                placeholder=" Apenas números"
-                                onChange={this.handleChange}
-                                value={this.state.tombo}
-                            />
-                        </label>
-                        <button tipe="submit">Pesquisar</button>
-                        <button tipe="reset">Limpar dados</button>
-                    </fieldset>
-                </form>
+            <form
+                style={{ 
+                    textAlign: 'center' 
+                }}
 
-                <div id="resultado" style={{ textAlign: "center", backgroundColor: "white", color: "black" }}>
-                    <br />...
-                    <br />Aguardando dados
-                    <br />...
-            </div>
-            </div>
-        );
-    }
+                onSubmit={handleEnviarTombo}
+                method='post'
+                
+            >
+
+                <fieldset>
+                    <legend style={{ fontSize: "0.9rem" }}>Dados do bem</legend>
+                    <label>
+                        Informe o tombo do bem:
+                        <input
+                            type="number"
+                            name="tombo"
+                            value={tombo}
+                            placeholder="Apenas números"
+                            onChange={e => setTombo(e.target.value)}
+                        />
+                    </label>
+                    <button tipe="submit">Pesquisar</button>
+                </fieldset>
+            </form>
+
+
+        </div>
+    )
 }
-
 export default InventarioComponente;
