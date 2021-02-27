@@ -4,9 +4,6 @@ import url from 'url'
 
 let cachedDb = null
 
-
-
-
 async function connectToDatabase(uri: string) {
     if (cachedDb){
         return cachedDb
@@ -23,14 +20,14 @@ async function connectToDatabase(uri: string) {
 }
 
 
-
 export default async (request: NowRequest, response: NowResponse) => {
 
-    const {tombo} = request.body
+    const {tombo, proprietario} = request.body
     const db = await connectToDatabase(process.env.MONGODB_URI)
     const collection = db.collection('inventario')
     await collection.insertOne({
         tombo,
+        proprietario,
         dataConferencia: new Date(),
     })
 

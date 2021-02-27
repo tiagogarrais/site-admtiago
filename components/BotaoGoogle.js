@@ -22,8 +22,9 @@ function BotaoGoogle() {
 
 
   return (
-    <div 
+    <div
       style={{ textAlign: 'center' }}>
+      <hr />
       <GoogleLogin
         clientId="752079920699-0ovm5mbbfddb5nrb1skh05nphffehtcs.apps.googleusercontent.com"
         buttonText="Autenticar com Google"
@@ -36,6 +37,7 @@ function BotaoGoogle() {
       {isLoggedIn ?
         //Mostrar na tela, informações do usuário do site
         <div style={{ textAlign: 'center' }}>
+          <p>Usuário logado:</p>
           <img src={profilePic} alt="Foto do perfil" />
           <p>Nome: {name}</p>
           <p>E-mail: {email}</p>
