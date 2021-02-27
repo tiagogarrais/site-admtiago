@@ -5,6 +5,8 @@ import url from 'url'
 let cachedDb = null
 
 
+
+
 async function connectToDatabase(uri: string) {
     if (cachedDb){
         return cachedDb
@@ -21,6 +23,7 @@ async function connectToDatabase(uri: string) {
 }
 
 
+
 export default async (request: NowRequest, response: NowResponse) => {
 
     const {tombo} = request.body
@@ -35,5 +38,6 @@ export default async (request: NowRequest, response: NowResponse) => {
         dadosRecebidos:true,
         dataConferencia: new Date(),
     })
+
   
 }
