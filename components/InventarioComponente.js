@@ -5,9 +5,11 @@ import axios from 'axios'
 function InventarioComponente() {
     const [tombo, setTombo] = useState('');
 
-    function handleEnviarTombo(event){
+    function EnviarTombo(event){
+        
         event.preventDefault()
-        axios.post('../api/inventario', {tombo: tombo})
+        axios.post('../api/enviarInventario', {tombo: tombo})
+        document.getElementById('resultado').innerHTML = `<p><strong>Tombo nº  ${tombo} enviado.</strong></p>`
     }
 
 
@@ -29,26 +31,33 @@ function InventarioComponente() {
                     textAlign: 'center' 
                 }}
 
-                onSubmit={handleEnviarTombo}
+                onSubmit={EnviarTombo}
                 method='post'
                 
             >
 
                 <fieldset>
                     <legend style={{ fontSize: "0.9rem" }}>Dados do bem</legend>
+
                     <label>
                         Informe o tombo do bem:
                         <input
                             type="number"
-                            name="tombo"
                             value={tombo}
                             placeholder="Apenas números"
                             onChange={e => setTombo(e.target.value)}
                         />
                     </label>
+
+
+
                     <button tipe="submit">Pesquisar</button>
                 </fieldset>
             </form>
+
+            <div id='resultado'>
+            
+            </div>
 
 
         </div>

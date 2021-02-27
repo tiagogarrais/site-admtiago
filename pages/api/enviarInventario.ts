@@ -23,7 +23,7 @@ async function connectToDatabase(uri: string) {
 
 export default async (request: NowRequest, response: NowResponse) => {
 
-    const { tombo } = request.body
+    const {tombo} = request.body
     const db = await connectToDatabase(process.env.MONGODB_URI)
     const collection = db.collection('inventario')
     await collection.insertOne({
@@ -31,5 +31,9 @@ export default async (request: NowRequest, response: NowResponse) => {
         dataConferencia: new Date(),
     })
 
-    return response.status(201).json({ok:true})
+    return response.status(201).json({
+        dadosRecebidos:true,
+        dataConferencia: new Date(),
+    })
+  
 }
