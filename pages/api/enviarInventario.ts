@@ -22,19 +22,17 @@ async function connectToDatabase(uri: string) {
 
 export default async (request: NowRequest, response: NowResponse) => {
 
-    const {tombo, proprietario} = request.body
+    const {proprietario, tombo} = request.body
+    
     const db = await connectToDatabase(process.env.MONGODB_URI)
     const collection = db.collection('inventario')
     await collection.insertOne({
-        tombo,
         proprietario,
+        tombo,
         dataConferencia: new Date(),
     })
 
     return response.status(201).json({
-        dadosRecebidos:true,
-        dataConferencia: new Date(),
+        AcessarSiteParaCadastrarDados: 'https://admtiago.vercel.app/ufca/inventario'
     })
-
-  
 }

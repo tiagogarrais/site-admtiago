@@ -5,19 +5,19 @@ import React, { useState } from "react";
 function BotaoGoogle() {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
-  const [profilePic, setProfilePic] = useState()
+  //const [profilePic, setProfilePic] = useState()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   function responseGoogle(response) {
     const { profileObj: { name, email, imageUrl } } = response;
     setName(name);
     setEmail(email);
-    setProfilePic(imageUrl);
+    //setProfilePic(imageUrl);
     setIsLoggedIn(true);
   }
 
   const failure = (response) => {
-    alert('Tente novamente')
+    alert('Login não concluído, tente novamente')
   }
 
 
@@ -37,8 +37,7 @@ function BotaoGoogle() {
       {isLoggedIn ?
         //Mostrar na tela, informações do usuário do site
         <div style={{ textAlign: 'center' }}>
-          <p>Usuário logado:</p>
-          <img src={profilePic} alt="Foto do perfil" />
+          {/* <img src={profilePic} alt="Foto do perfil" /> */}
           <p>Nome: {name}</p>
           <p>E-mail: {email}</p>
         </div>
